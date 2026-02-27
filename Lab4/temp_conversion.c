@@ -11,6 +11,7 @@ float kelvin_to_celsius(float k);
 float fahrenheit_to_kelvin(float f);
 float kelvin_to_fahrenheit(float k);
 void categorize_temperature(float celsius);
+bool validScale(char s);
 
 int main(void) {
   // Main loop: program runs until invalid input is entered
@@ -39,6 +40,12 @@ int main(void) {
         break;
     }
 
+    /* Invalid temperature scale */
+    if (!validScale(inScale) || !validScale(outScale)) {
+    printf("Invalid scale. Exiting.\n");
+    break;
+    }
+
     /* Input validation: Kelvin cannot be negative */
     if ((inScale == 'K' || inScale == 'k') && temp < 0.0f) {
         printf("Invalid input: Kelvin cannot be negative.\n");
@@ -50,9 +57,10 @@ int main(void) {
         printf("Invalid conversion: input and output scales are the same.\n");
         break;
     }
+
     /* Conversion Logic */
     float converted = 0.0f;
-    // Temerature catagories are based on Celsius,
+    // Temperature categories are based on Celsius,
     // so we store or convert the values to Celsius for classification.
     float celsiusForCategory = 0.0f;
 
@@ -135,7 +143,7 @@ float kelvin_to_fahrenheit (float k) {
 /* ---- Categorization + advisory ---- */
 
 void categorize_temperature (float celsius) {
-  printf("Temperature catagory: ");
+  printf("Temperature category: ");
 
   if (celsius < 0.0f) {
     printf("Freezing\n");
@@ -155,6 +163,14 @@ void categorize_temperature (float celsius) {
   }
   else {
     printf("Extreme Heat\n");
-    printf("Weather advisory: Stay indors if possible.\n");
+    printf("Weather advisory: Stay indoors if possible.\n");
   }
+  
+}
+
+// Returns true if the provided character is a valid temperature scale (C, F, or K)
+bool validScale(char s) {
+  return (s == 'C' || s == 'c' ||
+          s == 'F' || s == 'f' ||
+          s == 'K' || s == 'k');
 }
