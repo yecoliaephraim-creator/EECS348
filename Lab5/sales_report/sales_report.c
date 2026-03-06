@@ -19,11 +19,21 @@ int main() {
         "September", "October", "November", "December"
     };
 
-    // Array to store the monthly sales values
-    double sales[MONTHS];
-
-    // Read sales data from the input file
-    readSalesFromFile("sales.txt", sales);
+    // Hardcoded sales values
+    double sales[MONTHS] = {
+    23458.01,
+    40112.00,
+    56011.85,
+    37820.88,
+    37904.67,
+    60200.22,
+    72400.31,
+    56210.89,
+    67230.84,
+    68233.12,
+    80950.34,
+    95225.22
+    };
 
     // Generate the required reports
     printMonthlyReport(months, sales);
@@ -34,34 +44,6 @@ int main() {
     return 0;
 }
 
-/*
-Reads 12 monthly sales values from a file and stores them
-in the sales array.
-*/
-void readSalesFromFile(const char *filename, double sales[]) {
-
-    // Open the file in read mode
-    FILE *file = fopen(filename, "r");
-
-    // Check if file opened successfully
-    if (file == NULL) {
-        printf("Error: Could not open file %s\n", filename);
-        exit(1);
-    }
-
-    // Read each sales value from the file
-    for (int i = 0; i < MONTHS; i++) {
-
-        if (fscanf(file, "%lf", &sales[i]) != 1) {
-            printf("Error: Invalid sales data.\n");
-            fclose(file);
-            exit(1);
-        }
-    }
-
-    // Close the file after reading
-    fclose(file);
-}
 
 /*
 Prints the monthly sales report showing the month
