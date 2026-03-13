@@ -1,0 +1,28 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 20px;
+}
+
+.profile-container {
+  background-color: white;
+  margin: auto;
+  padding: 20 px;
+  border-radius: 10px;
+}
+
+h1,
+h2 {
+  color: #003366;
+}
+
+img {
+  border: 3px solid #003366;
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
+
+a {
+  color: #0055cc;
+}
