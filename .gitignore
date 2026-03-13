@@ -1,0 +1,11 @@
+
+# ignore local backups / other projects
+Lab4_backup/
+TermProject/
+
+#executables
+sales_report/sales_report
+matrix_manipulation/matrix
+
+# object file
+*.o
