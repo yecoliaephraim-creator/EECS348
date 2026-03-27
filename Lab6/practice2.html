@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Practice 2 - CSS Font Control</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+
+    #text-box {
+      border-style: solid;
+      border-width: 3px;
+      padding: 20px;
+      width: 500px;
+      color: rgb(0, 0, 0);
+      border-color: rgb(0, 0, 0);
+    }
+
+    .controls {
+      margin-top: 20px;
+    }
+
+    input {
+      margin: 5px;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>CSS Font Control</h1>
+
+  <div id="text-box">
+    This is a sample paragraph. Change the paragraph color, border color,
+    and border width using the controls below.
+  </div>
+
+  <div class="controls">
+    <h3>Paragraph Color (RGB)</h3>
+    R: <input type="number" id="textR" min="0" max="255" value="0">
+    G: <input type="number" id="textG" min="0" max="255" value="0">
+    B: <input type="number" id="textB" min="0" max="255" value="0">
+
+    <h3>Border Color (RGB)</h3>
+    R: <input type="number" id="borderR" min="0" max="255" value="0">
+    G: <input type="number" id="borderG" min="0" max="255" value="0">
+    B: <input type="number" id="borderB" min="0" max="255" value="0">
+
+    <h3>Border Width</h3>
+    <input type="number" id="borderWidth" min="1" value="3"> px
+    <br><br>
+    <button onclick="applyStyle()">Apply Change</button>
+  </div>
+
+  <script>
+    function applyStyle() {
+      let textR = document.getElementById("textR").value;
+      let textG = document.getElementById("textG").value;
+      let textB = document.getElementById("textB").value;
+
+      let borderR = document.getElementById("borderR").value;
+      let borderG = document.getElementById("borderG").value;
+      let borderB = document.getElementById("borderB").value;
+
+      let borderWidth = document.getElementById("borderWidth").value;
+
+      let box = document.getElementById("text-box");
+
+      box.style.color = `rgb(${textR}, ${textG}, ${textB})`;
+      box.style.borderColor = `rgb(${borderR}, ${borderG}, ${borderB})`;
+      box.style.borderWidth = borderWidth + "px";
+    }
+  </script>
+</body>
+
+</html>
